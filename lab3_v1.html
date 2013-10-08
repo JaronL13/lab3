@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Hendelser med jQuery</title>
+	<!-- Husk å legge til CSS filen din her" -->
+	<link rel="stylesheet" type="text/css" href="Lab3.css">
+	<script src="js/jquery-1.8.1.js"></script>
+    <script>
+	
+	$(function() {
+		// Setter en "observatør" for keydown hendelse på noden document.body
+	    $(document.body).on('keydown', function(e) {
+		// Sorterer ut de tastetrykkene man ønsker å gi en respons på
+		// Her brukes det en struktur switch som finnes i de fleste programmeringsspråk
+		switch (e.which) {			
+			// tastekode for venstre pil; responsen er en utskrift til konsollen (innebygd i nettlesere)
+			case 37:
+				// Her og i andre case skal koden for å skrive til innerHTML skrives (deloppgave 0)
+				console.log( 'venstre piltast trykket!' );
+				$( "#knapptrykk" ).html('venstre piltast trykket!')
+				break;
+			
+			// tastekode for opp pil
+			case 38:
+				console.log( 'øvre piltast trykket!' );
+				$( "#knapptrykk" ).html('øvre piltast trykket!')
+				break;
+        
+			// tastekode for høyre pil
+			case 39:
+				console.log( 'høyre piltast trykket!' );
+				$( "#knapptrykk" ).html('høyre piltast trykket!')
+				break;
+				
+			// tastekode for ned pil
+			case 40:
+				console.log( 'nedre piltast trykket!' );
+				$( "#knapptrykk" ).html('nedre piltast trykket!')
+				break;
+			}
+			// Her skal koden for å behandle andre tastetrykk skrives (deloppgave 0)
+		
+		
+		$( "#knapptrykk" ).addClass("blue");
+		
+			// TESTING: Etter mye prøving og feiling og vanskelige metoder uten å bruke det som var i koden allerede
+			// fant jeg den enkleste metoden til slutt. Det virker bare så vanskelig når alt er nytt, men har lært mye, 
+			// selv om svaret egentlig ikke var vanskelig i det hele tatt.
+			
+			// TESTING0
+			// var code = e.keyCode || e.which;
+			// if ( code == 37 ) { 
+			// $( "#knapptrykk" ).html('venstre pil tast trykket!')
+			// }
+			// 	if ( code == 38 ) { 
+			//	$( "#knapptrykk" ).html('øvre piltast trykket!')
+			// }
+			// 	if ( code == 39 ) { 
+			//	$( "#knapptrykk" ).html('høyre piltast trykket!')
+			//	}
+			//	if ( code == 40 ) { 
+			//	$( "#knapptrykk" ).html('nedre piltast trykket!')
+			//	}		
+			
+			//TESTING1
+			//var case = {
+				//37: 'venstre pil tast trykket!' ;
+				//38: 'pil tast opp trykket!' ;
+				//39: 'høyre pil tast trykket!' ;
+				//40: 'pil tast ned trykket!' ;
+				//}
+				
+			// TESTING2 med alert av Arrays literal men fikk ikke det helt til å fungere, feilet
+			// var keys = ["venstre", "høyre", "opp", "ned"];
+			// alert (key[0] = "Du har trykket venstre piltast");
+			// alert (key[1] = "Du har trykket høyre piltast");
+			// alert (key[2] = "Du har trykket opp piltast");
+			// alert (key[3] = "Du har trykket ned piltast");
+			
+			// TESTING3 med hver console bundet til hver var
+			// var opp = 'pil tast opp trykket!';
+			// var ned = 'pil tast ned trykket!';
+			// var venstre = 'venstre pil tast trykket!';
+			// var høyre = 'høyre pil tast trykket!';		
+		});
+		
+	});
+	
+	</script>
+</head>
+<body>
+	<p>Testside for å "fange" hendelser fra tastatur.</p>
+	<p>
+		<ul>
+			<li>Bruk helst Google Chrome (norsk versjon).</li> 
+			<li>Trykk høyre museknapp og velg "Inspiser element".</li> 
+			<li>Velg "Console" fra hjelpeverktøyets hovedmenyen.</li>
+		</ul>
+	</p>
+	<p>Man har Console også i andre nettlesere. Bruker du en annen nettleser søk på "JavaScript console" for din nettleser for å finne ut hvordan du kan bruke det.</p>
+	<!-- Oppgaveløsning skal implementeres her -->
+	<p id="knapptrykk"> </p>
+	<!-- kunne eventuelt brukt en span mmed id i en tekst også -->
+	
+</body>
+</html>
